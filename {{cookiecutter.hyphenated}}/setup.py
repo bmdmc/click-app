@@ -31,7 +31,7 @@ setup(
         [console_scripts]
         {{ cookiecutter.hyphenated }}={{ cookiecutter.underscored }}.cli:cli
     """,
-    install_requires=["click"],
+    install_requires=["click", "confluent-kafka"],
     extras_require={
         "test": ["pytest"]
     },
