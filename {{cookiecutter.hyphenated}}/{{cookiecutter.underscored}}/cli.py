@@ -82,7 +82,7 @@ def consume(kafka_topic, kafka_bootstrap_servers, kafka_group_id, kafka_reset_of
             logging.info("Message value length: %s", len(msg.value()))
             logging.info("Message headers")
             for key, value in msg.headers():
-                logging.info("\t%s: %s")
+                logging.info("\t%s: %s", key, value)
             msg_obj = json.loads(msg.value())
             logging.info("Successfully parsed JSON message.")
             sys.stdout.flush()

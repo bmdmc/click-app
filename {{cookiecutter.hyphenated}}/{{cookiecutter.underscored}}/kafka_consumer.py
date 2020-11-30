@@ -5,7 +5,11 @@ from pprint import pprint
 import confluent_kafka
 from confluent_kafka import Consumer, TopicPartition
 
-{{cookiecutter.underscored.upper()}}_DEFAULT_KAFKA_BROKERS = []
+{{cookiecutter.underscored.upper()}}_DEFAULT_KAFKA_BROKERS = [
+    {% for broker in cookiecutter.brokers.split(",") %}
+    "{{ broker }}",
+    {% endfor %}
+]
 
 
 def normalize_bootstrap_server_spec(spec):
