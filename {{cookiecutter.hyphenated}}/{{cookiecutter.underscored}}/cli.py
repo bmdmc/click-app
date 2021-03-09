@@ -84,7 +84,7 @@ def consume(kafka_topic, kafka_bootstrap_servers, kafka_group_id, kafka_reset_of
             for key, value in msg.headers():
                 logging.info("\t%s: %s", key, value)
             msg_obj = json.loads(msg.value())
-            logging.info("Successfully parsed JSON message.")
+            logging.info("Successfully parsed JSON message: %s", msg.headers().get('message-uuid', '<no-message-uuid>'))
             sys.stdout.flush()
 
         except:
